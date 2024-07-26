@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
+
+:root {
+  --d: 700ms;
+  --e: cubic-bezier(0.19, 1, 0.22, 1);
+  --font-sans: "Rubik", sans-serif;
+  --font-serif: "Cardo", serif;
+}
+
+.dest {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.heading {
+  font-size: 1.22rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.subheading {
+    font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.page-content {
+  display: grid;
+  grid-gap: 2rem;
+  padding: 0.1rem;
+  max-width: 1024px;
+  margin: 0 auto;
+  font-family: var(--font-sans);
+}
+
+@media (min-width: 600px) {
+  .page-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 800px) {
+  .page-content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  padding: 1.59rem;
+  width: 100%;
+  height: 350px;
+  text-align: center;
+  color: whitesmoke;
+  background-color: whitesmoke;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
+  transition: transform var(--d) var(--e);
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.5rem;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: background-color var(--d) var(--e);
+}
+
+.card:hover::before {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.card:nth-child(1) {
+  background-image: url(https://www.home-adda.com/wp-content/uploads/2018/03/WEST-BANGALORE-AN-UPCOMING-REAL-ESTATE-HUB-1.jpg);
+}
+
+.card:nth-child(2) {
+  background-image: url(https://assetmonk.com/wp-content/uploads/shutterstock_1707921997-min.jpg);
+}
+
+.card:nth-child(3) {
+  background-image: url(https://appaswamy.com/assets/admin/uploads/property_thumb/d1827ab66cf541993d161c9a676985bd.jpg);
+}
+
+.card:nth-child(4) {
+  background-image: url(https://d36c9y7c8zyajq.cloudfront.net/listing_ad3418fdcebc6503a8610778255b9a24/1024x600/salarpuria-sattva-navaratna-residency-in-pappanaickenpalayam-elevation-photo-fo3.jpg);
+}
+
+.content {
+  color: #ffffff;
+  font-weight: bold;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+  z-index: 1;
+  transition: transform var(--d) var(--e);
+}
+
+.content > * + * {
+  margin-top: 1rem;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  font-size: 1.3rem;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.copy {
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  font-style: italic;
+  line-height: 1.35;
+}
+
+.btn1 {
+  cursor: pointer;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.025rem;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  border: none;
+  transition: background-color var(--d) var(--e);
+}
+
+
+
+.btn1:focus {
+  outline: 1px dashed yellow;
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (min-width: 600px) {
+  .content {
+    transform: translateY(calc(100% - 4.5rem));
+  }
+
+  .content > *:not(.title) {
+    opacity: 1;
+    transform: translateY(1rem);
+    transition: transform var(--d) var(--e), opacity var(--d) var(--e);
+  }
+
+  .card:hover,
+  .card:focus-within {
+    align-items: center;
+  }
+
+  .card:hover .content,
+  .card:focus-within .content {
+    transform: translateY(0);
+  }
+
+  .card:hover .content > *:not(.title),
+  .card:focus-within .content > *:not(.title) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--d) / 8);
+  }
+
+  .card:focus-within .content,
+  .card:focus-within .content > *:not(.title) {
+    transition-duration: 0s;
+  }
+}
