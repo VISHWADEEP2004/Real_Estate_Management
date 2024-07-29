@@ -1,4 +1,4 @@
-.site-footer {
+/* .site-footer {
     background-color: #303238;
     padding: 45px 0 20px;
     font-size: 15px;
@@ -140,4 +140,111 @@
       font-weight: 600;
     }
   }
-  
+   */
+
+   /* Footer.css */
+
+/* Footer.css */
+
+.footer {
+  @apply bg-secondary text-secondary-foreground dark:bg-background dark:text-primary-foreground py-8;
+}
+
+.footer-about,
+.footer-links,
+.footer-contact,
+.footer-social {
+  @apply mb-8 md:mb-0;
+}
+
+.footer-links ul {
+  @apply list-none p-0;
+}
+
+.footer-links li {
+  @apply mb-2;
+}
+
+.footer-links a {
+  @apply text-primary hover:underline;
+}
+
+.footer-social .social-links a {
+  @apply text-primary-foreground hover:text-primary text-2xl transition-colors duration-300;
+}
+
+.footer-bottom {
+  @apply mt-8;
+}
+
+.footer-bottom hr {
+  @apply border-muted-foreground my-4;
+}
+
+
+.social-links {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.social-links li {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+.social-icons li.title {
+  margin-right: 15px;
+  text-transform: uppercase;
+  color: #7713f1;
+  font-weight: 700;
+  font-size: 13px;
+}
+.social-icons a {
+  background-color: #ffffff;
+  color: #818a91;
+  font-size: 16px;
+  display: inline-block;
+  line-height: 44px;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  margin-right: 8px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.social-icons a:active,
+.social-icons a:focus,
+.social-icons a:hover {
+  color: #fff;
+  background-color: #29aafe;
+}
+.social-icons.size-sm a {
+  line-height: 34px;
+  height: 34px;
+  width: 34px;
+  font-size: 14px;
+}
+.social-icons a.facebook:hover {
+  background-color: #3b5998;
+}
+.social-icons a.twitter:hover {
+  background-color: #00aced;
+}
+.social-icons a.linkedin:hover {
+  background-color: #007bb6;
+}
+.social-icons a.dribbble:hover {
+  background-color: #ea4c89;
+}
+.social-icons a.gmail:hover {
+  background-color: #4c7eea;
+}
+@media (max-width: 767px) {
+  .social-icons li.title {
+    display: block;
+    margin-right: 0;
+    font-weight: 600;
+  }
+}
+ 

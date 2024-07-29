@@ -30,9 +30,9 @@ import React from 'react'
 
 const AdminLayout = () => {
   return (
-    <div className='h-screen w-screen overflow-hidden flex pt-2  pl-2 pb-3 '>
+    <div className='h-screen w-screen overflow-hidden flex pt-2  pl-2 pb-3 bg-slate-100 dark:bg-gray-800'>
       <AdminLeftBar />
-      <div className='flex-1 flex flex-col gap-3'>
+      <div className='flex-1 flex flex-col gap-1'>
         <div className='sticky top-0 z-50 pt-0 pr-2 pl-2'>
           <AdminTopbar />
         </div>

@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
 
 @layer base {
   :root {
@@ -92,4 +95,41 @@
     align-items: center;
     border: 1px solid;
   }
-  
+  .services-section {
+    @apply bg-secondary text-secondary-foreground;
+  }
+
+  .service-card {
+    @apply bg-card text-card-foreground p-6 rounded-lg shadow-md;
+  }
+
+  .service-card a {
+    @apply text-primary hover:underline;
+  }
+  .testimonials-section {
+    @apply py-12 text-center; /* Tailwind classes for padding and text alignment */
+    background-color: var(--secondary); /* Using CSS variable for background color */
+    color: var(--secondary-foreground); /* Using CSS variable for text color */
+  }
+
+  .testimonial-card {
+    @apply bg-card text-card-foreground p-6 rounded-lg shadow-md; /* Tailwind classes for card styling */
+  }
+
+  .testimonial-card img {
+    @apply w-16 h-16 rounded-full; /* Tailwind classes for image styling */
+  }
+
+  .testimonial-card h3 {
+    @apply text-xl font-semibold; /* Tailwind classes for title styling */
+  }
+
+  .testimonial-card p {
+    @apply text-base;
+    color: var(--card-foreground);
+  }
+
+  .testimonial-role {
+    @apply text-sm italic;
+    color: var(--primary);
+  }

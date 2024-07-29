@@ -1,0 +1,102 @@
+#app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+#app .search-wrapper {
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+#app .search-wrapper label {
+  position: absolute;
+  font-size: 14px;
+  color: rgb(0, 0, 0);
+  top: 12px;
+  left: 12px;
+  transition: .2s all ease-in-out;
+  pointer-events: none;
+}
+
+#app .search-wrapper input {
+  width: 100%;
+  padding: 14px 12px;
+  color: rgba(0, 0, 0, .85);
+  border: 1px solid rgba(128, 0, 128, .15); /* Changed to use purple color */
+  border-radius: 4px;
+  transition: .2s all ease-in-out;
+  background: #ffffff;
+  font-size: 16px;
+}
+
+#app .search-wrapper input:focus {
+  outline: none;
+  border-color: purple;
+  background: white;
+  box-shadow: 0 4px 8px rgba(128, 0, 128, .1); /* Changed to use purple color */
+}
+
+#app .search-wrapper input:focus + label,
+#app .search-wrapper input:not(:placeholder-shown) + label {
+  top: -8px;
+  left: 10px;
+  font-size: 12px;
+  color: purple;
+  background: white;
+  padding: 0 4px;
+}
+
+#app .search-wrapper input::placeholder {
+  color: transparent;
+}
+
+#app .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  padding-top: 12px;
+}
+
+#app .card1 {
+  box-shadow: rgba(128, 0, 128, 0.117647) 0px 1px 6px, rgba(128, 0, 128, 0.117647) 0px 1px 4px; /* Changed to use purple color */
+  width: 220px; 
+  margin: 16px;
+  flex: 1 1 calc(25% - 32px); /* 25% - margin */
+  max-width: calc(25% - 32px);
+  transition: .15s all ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#app .card1:hover {
+  transform: scale(1.1);
+}
+
+#app .card1 a {
+  text-decoration: none;
+  padding: 12px;
+  font-size: 18px;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#app .card1 img {
+  height: 10rem;
+  margin-bottom: 10px;
+}
+
+#app .card1 small {
+  font-size: 12px;
+  padding: 4px;
+}

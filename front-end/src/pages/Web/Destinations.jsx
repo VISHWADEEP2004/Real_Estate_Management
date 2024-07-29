@@ -35,7 +35,7 @@ const Destination = () => {
 
   return (
     <div className="dest">
-      <h1 className="heading">TOP LOCATIONS IN SOUTH INDIA</h1>
+      <h1 className="heading pt-10">TOP LOCATIONS IN SOUTH INDIA</h1>
       <p className="subheading">Explore the best real estate locations in South India!</p>
       <main className="page-content">
         {cards.map((card, index) => (

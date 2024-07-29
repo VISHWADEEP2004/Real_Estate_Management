@@ -12,6 +12,9 @@ import AdminDashboard from './pages/Admin/AdminDashboard';
 import UserLayout from './layout/UserLayout';
 import { AdminUsers } from './pages/Admin/AdminUsers';
 import Userdetails from './pages/User/Userdetails';
+import Properties from './pages/Web/Properties';
+import LocationDetails from './pages/Web/LocationDetails';
+
 function App() {
 
   return (
@@ -22,16 +25,20 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
-          </Route>
+            <Route path='/search' element={<Properties/>}/>
+            <Route path='/location/:locationName' element={<LocationDetails />} />
+            </Route>
           <Route element={<UserLayout/>}>
-          <Route path='/user/dashboard' element={<UserDashboard/>}/>
-            <Route path='/user/userdetails' element={<Userdetails />} />
+          <Route path='/userdashboard' element={<UserDashboard/>}/>
+            <Route path='/userdetails' element={<Userdetails />} />
           </Route>
           <Route element={<AdminLayout />}>
-            <Route path='/admin/dashboard' element={<AdminDashboard />} />
-            <Route path='/admin/users' element={<AdminUsers />} />
+            <Route path='/admindashboard' element={<AdminDashboard />} />
+            <Route path='/adminusers' element={<AdminUsers />} />
           </Route>
             <Route path='/*' element={<PageNotFound />} />
+           
+          
         </Routes>
       </BrowserRouter>
     </div>
