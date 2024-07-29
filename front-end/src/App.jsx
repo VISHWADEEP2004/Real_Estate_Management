@@ -11,9 +11,9 @@ import UserDashboard from './pages/User/UserDashboard';
 import AdminDashboard from './pages/Admin/AdminDashboard';
 import UserLayout from './layout/UserLayout';
 import { AdminUsers } from './pages/Admin/AdminUsers';
-import Userdetails from './pages/User/Userdetails';
 import Properties from './pages/Web/Properties';
 import LocationDetails from './pages/Web/LocationDetails';
+import ProfilePage from './pages/User/ProfilePage';
 
 function App() {
 
@@ -30,7 +30,7 @@ function App() {
             </Route>
           <Route element={<UserLayout/>}>
           <Route path='/userdashboard' element={<UserDashboard/>}/>
-            <Route path='/userdetails' element={<Userdetails />} />
+            <Route path='/userprofile' element={<ProfilePage />} />
           </Route>
           <Route element={<AdminLayout />}>
             <Route path='/admindashboard' element={<AdminDashboard />} />

@@ -8,89 +8,93 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-  } from "@/components/ui/table"
-  const invoices = [
+} from "@/components/ui/table"
+
+const properties = [
     {
-      invoice: "INV001",
-      paymentStatus: "Paid",
-      totalAmount: "$250.00",
-      paymentMethod: "Credit Card",
+        propertyID: "PROP001",
+        status: "Sold",
+        salePrice: "$450,000",
+        agent: "John Doe",
     },
     {
-      invoice: "INV002",
-      paymentStatus: "Pending",
-      totalAmount: "$150.00",
-      paymentMethod: "PayPal",
+        propertyID: "PROP002",
+        status: "For Sale",
+        salePrice: "$350,000",
+        agent: "Jane Smith",
     },
     {
-      invoice: "INV003",
-      paymentStatus: "Unpaid",
-      totalAmount: "$350.00",
-      paymentMethod: "Bank Transfer",
+        propertyID: "PROP003",
+        status: "Under Offer",
+        salePrice: "$275,000",
+        agent: "Emily Davis",
     },
     {
-      invoice: "INV004",
-      paymentStatus: "Paid",
-      totalAmount: "$450.00",
-      paymentMethod: "Credit Card",
+        propertyID: "PROP004",
+        status: "Sold",
+        salePrice: "$500,000",
+        agent: "Michael Johnson",
     },
     {
-      invoice: "INV005",
-      paymentStatus: "Paid",
-      totalAmount: "$550.00",
-      paymentMethod: "PayPal",
+        propertyID: "PROP005",
+        status: "For Sale",
+        salePrice: "$400,000",
+        agent: "Sarah Brown",
     },
     {
-      invoice: "INV006",
-      paymentStatus: "Pending",
-      totalAmount: "$200.00",
-      paymentMethod: "Bank Transfer",
+        propertyID: "PROP006",
+        status: "For Sale",
+        salePrice: "$325,000",
+        agent: "Chris Lee",
     },
     {
-      invoice: "INV007",
-      paymentStatus: "Unpaid",
-      totalAmount: "$300.00",
-      paymentMethod: "Credit Card",
+        propertyID: "PROP007",
+        status: "Under Offer",
+        salePrice: "$275,000",
+        agent: "Lisa White",
     },
-  ]
+]
+
 export const AdminUsers = () => {
-  return (
-    <div>
-      <TableCaption>A list of your recent invoices.</TableCaption>
-      <TableHeader className='w-full h-full'>
-        <TableRow className='w-full h-full'>
-          <TableHead className="w-[100px]">Invoice</TableHead>
-          <TableHead className='w-full h-full'>Status</TableHead>
-          <TableHead className='w-full h-full'>Method</TableHead>
-          <TableHead className="text-right">Amount</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody className='w-full h-full'>
-        {invoices.map((invoice) => (
-          <TableRow key={invoice.invoice}>
-            <TableCell className="font-medium">{invoice.invoice}</TableCell>
-            <TableCell>{invoice.paymentStatus}</TableCell>
-            <TableCell>{invoice.paymentMethod}</TableCell>
-            <TableCell className="text-right">{invoice.totalAmount}</TableCell>
-            <TableCell className="font-medium">{invoice.invoice}</TableCell>
-            <TableCell>{invoice.paymentStatus}</TableCell>
-            <TableCell>{invoice.paymentMethod}</TableCell>
-            <TableCell className="text-right">{invoice.totalAmount}</TableCell>
-          </TableRow>
-        ))}
-        {invoices.map((invoice) => (
-          <TableRow key={invoice.invoice}>
-            <TableCell className="font-medium">{invoice.invoice}</TableCell>
-            <TableCell>{invoice.paymentStatus}</TableCell>
-            <TableCell>{invoice.paymentMethod}</TableCell>
-            <TableCell className="text-right">{invoice.totalAmount}</TableCell>
-            <TableCell className="font-medium">{invoice.invoice}</TableCell>
-            <TableCell>{invoice.paymentStatus}</TableCell>
-            <TableCell>{invoice.paymentMethod}</TableCell>
-            <TableCell className="text-right">{invoice.totalAmount}</TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </div>
-  )
+    return (
+        <div className='w-full h-full flex justify-center'>
+            <Table className="w-full max-w-6xl">
+                <TableCaption>A list of recent property transactions and statuses.</TableCaption>
+                <TableHeader>
+                    <TableRow>
+                        <TableHead className="text-center">Property ID</TableHead>
+                        <TableHead className="text-center">Status</TableHead>
+                        <TableHead className="text-center">Sale Price</TableHead>
+                        <TableHead className="text-center">Agent</TableHead>
+                    </TableRow>
+                </TableHeader>
+                <TableBody>
+                    {properties.map((property) => (
+                        <TableRow key={property.propertyID}>
+                            <TableCell className="text-center">{property.propertyID}</TableCell>
+                            <TableCell className="text-center">{property.status}</TableCell>
+                            <TableCell className="text-center">{property.salePrice}</TableCell>
+                            <TableCell className="text-center">{property.agent}</TableCell>
+                        </TableRow>
+                    ))}
+                    {properties.map((property) => (
+                        <TableRow key={property.propertyID}>
+                            <TableCell className="text-center">{property.propertyID}</TableCell>
+                            <TableCell className="text-center">{property.status}</TableCell>
+                            <TableCell className="text-center">{property.salePrice}</TableCell>
+                            <TableCell className="text-center">{property.agent}</TableCell>
+                        </TableRow>
+                    ))}
+                    {properties.map((property) => (
+                        <TableRow key={property.propertyID}>
+                            <TableCell className="text-center">{property.propertyID}</TableCell>
+                            <TableCell className="text-center">{property.status}</TableCell>
+                            <TableCell className="text-center">{property.salePrice}</TableCell>
+                            <TableCell className="text-center">{property.agent}</TableCell>
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
+        </div>
+    )
 }
