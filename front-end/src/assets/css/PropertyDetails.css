@@ -1,0 +1,41 @@
+.property-details {
+    padding: 20px;
+  }
+  
+  .images {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .interior-images, .exterior-images {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .owner-details, .property-location, .nearby-amenities, .enquiry-form {
+    margin-top: 20px;
+  }
+  
+  .enquiry-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .enquiry-form form label {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .enquiry-form form button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .enquiry-form form button:hover {
+    background-color: #0056b3;
+  }
+  

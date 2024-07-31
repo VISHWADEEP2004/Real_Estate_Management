@@ -1,5 +1,7 @@
 
 import React from 'react'
+import 'leaflet/dist/leaflet.css';
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import WebLayout from './layout/WebLayout';
 import Register from './pages/Web/Register';
@@ -11,9 +13,10 @@ import UserDashboard from './pages/User/UserDashboard';
 import AdminDashboard from './pages/Admin/AdminDashboard';
 import UserLayout from './layout/UserLayout';
 import { AdminUsers } from './pages/Admin/AdminUsers';
-import Properties from './pages/Web/Properties';
 import LocationDetails from './pages/Web/LocationDetails';
 import ProfilePage from './pages/User/ProfilePage';
+import PropertyDetails from './pages/Web/PropertyDetails';
+import Locations from './pages/Web/Locations';
 
 function App() {
 
@@ -25,8 +28,9 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
-            <Route path='/search' element={<Properties/>}/>
+            <Route path='/location' element={<Locations/>}/>
             <Route path='/location/:locationName' element={<LocationDetails />} />
+            <Route path='/property/:propertyName' element={<PropertyDetails/>} /> 
             </Route>
           <Route element={<UserLayout/>}>
           <Route path='/userdashboard' element={<UserDashboard/>}/>
