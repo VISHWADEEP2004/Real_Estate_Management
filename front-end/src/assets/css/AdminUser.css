@@ -1,0 +1,40 @@
+/* AdminUser.css */
+
+.table-container {
+    position: relative;
+    overflow: hidden; /* Hide overflow to control scrolling */
+    border: 1px solid #dee2e6; /* Optional: Add border to container */
+  }
+  
+  .table-wrapper {
+    height: 100%;
+    overflow-y: auto; /* Enable vertical scrolling */
+    display: block;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse; /* Ensure borders collapse to prevent double borders */
+    min-width: 600px; /* Minimum width to maintain shape */
+  }
+  
+  .table th, .table td {
+    padding: 12px; /* Adjust padding for spacing */
+    text-align: left;
+    border-bottom: 1px solid #dee2e6; /* Border for each row */
+  }
+  
+  .table th {
+    position: sticky; /* Stick header to top */
+    top: 0;
+    z-index: 1; /* Ensure header is above other content */
+  }
+  
+  .table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Alternating row colors */
+  }
+  
+  .table tbody tr:hover {
+    background-color: #e9ecef; /* Highlight row on hover */
+  }
+  

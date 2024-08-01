@@ -1,7 +1,7 @@
 
 import React from 'react'
 import 'leaflet/dist/leaflet.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css'; 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import WebLayout from './layout/WebLayout';
 import Register from './pages/Web/Register';
