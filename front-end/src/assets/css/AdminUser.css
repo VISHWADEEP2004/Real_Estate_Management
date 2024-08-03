@@ -1,40 +1,70 @@
-/* AdminUser.css */
+/* Container for the entire page */
+.container-fluid {
+  padding-top: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
 
 .table-container {
-    position: relative;
-    overflow: hidden; /* Hide overflow to control scrolling */
-    border: 1px solid #dee2e6; /* Optional: Add border to container */
-  }
-  
-  .table-wrapper {
-    height: 100%;
-    overflow-y: auto; /* Enable vertical scrolling */
-    display: block;
-  }
-  
-  .table {
-    width: 100%;
-    border-collapse: collapse; /* Ensure borders collapse to prevent double borders */
-    min-width: 600px; /* Minimum width to maintain shape */
-  }
-  
-  .table th, .table td {
-    padding: 12px; /* Adjust padding for spacing */
-    text-align: left;
-    border-bottom: 1px solid #dee2e6; /* Border for each row */
-  }
-  
-  .table th {
-    position: sticky; /* Stick header to top */
-    top: 0;
-    z-index: 1; /* Ensure header is above other content */
-  }
-  
-  .table tbody tr:nth-child(even) {
-    background-color: #f2f2f2; /* Alternating row colors */
-  }
-  
-  .table tbody tr:hover {
-    background-color: #e9ecef; /* Highlight row on hover */
-  }
-  
+  width: 100%;
+  margin: 0 auto;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.btn {
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: 1px solid #007bff;
+}
+
+
+.btn-outline-primary {
+  background-color: transparent;
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+  border: 1px solid #dc3545;
+}
+
+
+/* Additional Styling */
+.table-container {
+  padding: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}

@@ -160,7 +160,7 @@ const LocationDetails = () => {
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4 flexd justify-center items-center">Properties in {locationName}</h1>
       <select
-        className="border border-gray-300 rounded p-2 mb-4 flex justify-center"
+        className="w-100  flex justify-center items-center p-2 text-gray-700 border border-purple-200 rounded-lg shadow-md bg-white dark:bg-secondary dark:text-secondary-foreground focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
         value={propertyType}
         onChange={(e) => setPropertyType(e.target.value)}
       >
@@ -183,10 +183,10 @@ const LocationDetails = () => {
           <p className="col-span-full text-center">No properties found for the selected type.</p>
         )}
       </div> */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-100">
   {filteredProperties.length > 0 ? (
     filteredProperties.map((property, index) => (
-      <div key={index} className="max-w-sm w-full sm:w-1/2 lg:w-1/3 py-6 px-3">
+      <div key={index} className=" w-full  py-6 px-10">
         <div className="bg-white shadow-xl rounded-lg overflow-hidden">
           <div className="bg-cover bg-center h-56 p-4" style={{ backgroundImage: `url(${property.imageUrl})` }}>
             <div className="flex justify-end">

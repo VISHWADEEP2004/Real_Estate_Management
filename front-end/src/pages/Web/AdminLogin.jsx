@@ -8,7 +8,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
-const Login = () => {
+const AdminLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -17,21 +17,16 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.get('http://localhost:8080/api/users/all');
-      const userData = response.data;
-      console.log(userData);
-      const user = userData.find(user => user.email === email);
-      if (user) {
-        if (user.password === password) {
-          toast.success('Login successful!');
-          navigate('/');
-        } else {
-          setError('Invalid password');
-          toast.error('Invalid password');
-        }
+      // Hardcoded admin credentials for simplicity
+      const adminEmail = 'admin@example.com';
+      const adminPassword = 'adminpassword'; // You should ideally store this securely
+
+      if (email === adminEmail && password === adminPassword) {
+        toast.success('Login successful!');
+        navigate('/admin-dashboard'); // Adjust the route as necessary
       } else {
-        setError('User not found');
-        toast.error('User not found');
+        setError('Invalid credentials');
+        toast.error('Invalid credentials');
       }
     } catch (error) {
       setError('Failed to login. Please try again.');
@@ -49,7 +44,7 @@ const Login = () => {
     <div className="h-full w-full flex justify-center items-center">
       <Card className="w-1/4">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl flex justify-center items-center">Login</CardTitle>
+          <CardTitle className="text-2xl flex justify-center items-center">Admin Login</CardTitle>
         </CardHeader>
         <form onSubmit={handleLogin}>
           <CardContent className="grid gap-4">
@@ -63,7 +58,7 @@ const Login = () => {
               <Input
                 id="email"
                 type="email"
-                placeholder="user@gmail.com"
+                placeholder="admin@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 onKeyDown={handleKeyDown}
@@ -85,10 +80,10 @@ const Login = () => {
             <Button className="w-full" type="submit">Login</Button>
           </CardFooter>
         </form>
-      <ToastContainer position="bottom-right" autoClose={3000} />
+        <ToastContainer position="bottom-right" autoClose={3000} />
       </Card>
     </div>
   );
 };
 
-export default Login;
+export default AdminLogin;

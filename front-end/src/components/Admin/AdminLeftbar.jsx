@@ -14,8 +14,13 @@ const AdminLeftBar = () => {
             icon: faTableColumns
         },
         {
-            title: 'Property Status',
+            title: 'Users',
             path: '/adminusers',
+            icon: faUsers
+        },
+        {
+            title: 'Agents',
+            path: '/adminagents',
             icon: faUsers
         }
     ];
