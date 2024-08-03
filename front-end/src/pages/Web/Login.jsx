@@ -17,14 +17,28 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
+      // Check for specific admin credentials
+      if (email === 'admin@gmail.com' && password === 'password') {
+        navigate('/admindashboard');
+        toast.success('Login successful!');
+        return;
+      }
+
+      // Fetch all users
       const response = await axios.get('http://localhost:8080/api/users/all');
       const userData = response.data;
-      console.log(userData);
+
+      // Find user by email
       const user = userData.find(user => user.email === email);
+
       if (user) {
         if (user.password === password) {
+          if (user.role === 'agent') {
+            navigate('/agentdashboard');
+          } else {
+            navigate('/userdashboard');
+          }
           toast.success('Login successful!');
-          navigate('/');
         } else {
           setError('Invalid password');
           toast.error('Invalid password');
@@ -85,7 +99,7 @@ const Login = () => {
             <Button className="w-full" type="submit">Login</Button>
           </CardFooter>
         </form>
-      <ToastContainer position="bottom-right" autoClose={3000} />
+        <ToastContainer position="bottom-right" autoClose={3000} />
       </Card>
     </div>
   );

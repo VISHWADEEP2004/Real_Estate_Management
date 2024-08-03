@@ -12,12 +12,11 @@ const AgentWelcomeMessage = () => {
         console.log('API Response:', response.data);
 
         const users = response.data;
-        const agent = users.find(user => user.role === 'AGENT');
+        const agent = users.find(user => user.role === 'agent');
 
         if (agent) {
           setAgentName(agent.name);
         } else {
-          setError('Agent not found');
           console.error('Agent not found');
         }
       } catch (error) {

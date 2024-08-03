@@ -2,7 +2,8 @@ package com.realestate.back_end.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.*;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class Register {
@@ -13,6 +14,8 @@ public class Register {
     private String username;
     private String email;
     private String password;
+    private String role;
+
     public Long getId() {
         return id;
     }
@@ -43,6 +46,10 @@ public class Register {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-
+    public String getRole() {
+        return role;
+    }
+    public void setRole(String role) {
+        this.role = role;
+    }
 }

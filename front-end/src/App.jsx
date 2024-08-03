@@ -18,9 +18,9 @@ import ProfilePage from './pages/User/ProfilePage';
 import PropertyDetails from './pages/Web/PropertyDetails';
 import Locations from './pages/Web/Locations';
 import ServiceSection from './pages/Web/ServiceSection';
-// import AgentDashboard from './pages/Agent/AgentDashboard';
-// import AgentLayout from './layout/AgentLayout';
-// import { AdminAgents } from './pages/Admin/AdminAgents';
+import AgentDashboard from './pages/Agent/AgentDashboard';
+import AgentLayout from './layout/AgentLayout';
+import { AdminAgents } from './pages/Admin/AdminAgents';
 
 function App() {
 
@@ -44,11 +44,11 @@ function App() {
           <Route element={<AdminLayout />}>
             <Route path='/admindashboard' element={<AdminDashboard />} />
             <Route path='/adminusers' element={<AdminUsers />} />
-            {/* <Route path='/adminagents' element={<AdminAgents />} /> */}
+            <Route path='/adminagents' element={<AdminAgents />} />
           </Route>
-          {/* <Route element={<AgentLayout />}>
+          <Route element={<AgentLayout />}>
             <Route path='/agentdashboard' element={<AgentDashboard />} />
-          </Route> */}
+          </Route>
             <Route path='/*' element={<PageNotFound />} />
           
         </Routes>
