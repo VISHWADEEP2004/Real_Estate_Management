@@ -15,7 +15,7 @@ export const AdminAgents = () => {
       const result = await axios.get("http://localhost:8080/api/users/all");
       const allUsers = result.data;
       // Filter agents
-      const filteredAgents = allUsers.filter(user => user.role === 'AGENT');
+      const filteredAgents = allUsers.filter(user => user.role === 'agent');
       setAgents(filteredAgents);
     } catch (error) {
       console.error("Error loading agents:", error);

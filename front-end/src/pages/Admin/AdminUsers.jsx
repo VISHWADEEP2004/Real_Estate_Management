@@ -13,9 +13,11 @@ export const AdminUsers = () => {
   const loadUsers = async () => {
     try {
       const result = await axios.get("http://localhost:8080/api/users/all");
-      setUsers(result.data);
+      const allUsers = result.data;
+      const filteredUser = allUsers.filter(user => user.role === 'user');
+      setUsers(filteredUser);
     } catch (error) {
-      console.error("Error loading users:", error);
+      console.error("Error loading agents:", error);
     }
   };
 
@@ -49,6 +51,7 @@ export const AdminUsers = () => {
                   <td>{user.name}</td>
                   <td>{user.username}</td>
                   <td>{user.email}</td>
+                  <td>{user.role}</td>
                   <td>
                     <Link className="btn btn-primary mx-2" to={`/admin/viewuser/${user.id}`}>
                       View
