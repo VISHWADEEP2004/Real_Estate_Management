@@ -84,6 +84,10 @@ import { AdminAgents } from './pages/Admin/AdminAgents';
 import Unauthorized from './pages/Auth/Unauthorized';
 import withAuthorization from './pages/Auth/withAuthorization';
 import AddProperty from './pages/Agent/AddProperty';
+import CareerLayout from './layout/CareerLayout';
+import WhyJoin from './components/Career/WhyJoin';
+import CareersPage from './components/Career/CareerPage';
+import JoinUs from './components/Career/JoinUs';
 
 function App() {
   return (
@@ -119,8 +123,11 @@ function App() {
             <Route path='/agentdashboard' element={<AgentDashboard/>} />
             <Route path='/addproperties' element={<AddProperty/>} />
           </Route>
+          <Route element={<CareerLayout />}>
+            <Route path='/careers' element={<CareersPage/>} />
+            <Route path='/joinus' element={<JoinUs/>} />
+          </Route>
 
-          {/* Unauthorized Route */}
           <Route path='/unauthorized' element={<Unauthorized />} />
 
           {/* Catch-All Route for 404 */}
