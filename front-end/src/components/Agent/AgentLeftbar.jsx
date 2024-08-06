@@ -24,8 +24,8 @@ const AgentLeftBar = () => {
             icon: faUser
         },
         {
-            title: 'Appointments',
-            path: '/agent/appointments',
+            title: 'AddProperties',
+            path: '/addproperties',
             icon: faCalendarAlt
         }
     ];

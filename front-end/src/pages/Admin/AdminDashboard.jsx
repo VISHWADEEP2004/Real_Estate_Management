@@ -3,9 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js';
 
-// Bar chart component
 const BarChart = () => {
-  // Register Chart.js components
   ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
 
   const data = {

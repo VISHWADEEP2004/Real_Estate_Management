@@ -23,4 +23,3 @@ public class PropertyController {
         return propertyService.getPropertiesByLocation(location);
     }
 }
-
