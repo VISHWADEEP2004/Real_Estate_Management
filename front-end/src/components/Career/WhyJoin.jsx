@@ -2,7 +2,7 @@ import React from 'react';
 
 const WhyJoin = () => {
   return (
-    <section id="why-join" className="py-20 bg-white">
+    <section id="why-join" className="py-20  bg-gray-100">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12">Why Join Us?</h2>
         <div className="flex flex-wrap justify-between gap-8">
@@ -15,7 +15,7 @@ const WhyJoin = () => {
                 className="w-full h-80 object-cover" 
               />
             </div>
-            <div className="p-6 flex-shrink-0 bg-gray-100">
+            <div className="p-6 flex-shrink-0 ">
               <h3 className="text-xl font-semibold mb-2">Come home to your global family</h3>
               <p>Experience being a part of a leading global network of excellence in real estate.</p>
             </div>
@@ -30,7 +30,7 @@ const WhyJoin = () => {
                 className="w-full h-80 object-cover" 
               />
             </div>
-            <div className="p-6 flex-shrink-0 bg-gray-100">
+            <div className="p-6 flex-shrink-0 ">
               <h3 className="text-xl font-semibold mb-2">Come home to fulfill dreams</h3>
               <p>Experience the feeling of changing the way India experiences property.</p>
             </div>
@@ -45,7 +45,7 @@ const WhyJoin = () => {
                 className="w-full h-80 object-cover" 
               />
             </div>
-            <div className="p-6 flex-shrink-0 bg-gray-100">
+            <div className="p-6 flex-shrink-0 ">
               <h3 className="text-xl font-semibold mb-2">Come home to learn and grow</h3>
               <p>Experience a fast-paced learning environment that fosters growth.</p>
             </div>

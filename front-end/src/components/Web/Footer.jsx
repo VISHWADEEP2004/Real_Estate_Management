@@ -73,12 +73,11 @@ const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white py-8">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-        {/* Company Info */}
         <div>
           <h3 className="text-xl font-bold mb-4">Company</h3>
           <ul>
             <li><a href="/careers" target="_blank" rel="noopener noreferrer" className="hover:underline">Careers</a></li>
-            <li><a href="/about-us" target="_blank" rel="noopener noreferrer" className="hover:underline">About Us</a></li>
+            <li><a href="/aboutus" target="_blank" rel="noopener noreferrer" className="hover:underline">About Us</a></li>
             <li><a href="/partners" target="_blank" rel="noopener noreferrer" className="hover:underline">For Partners</a></li>
             <li><a href="/terms" target="_blank" rel="noopener noreferrer" className="hover:underline">Terms</a></li>
             <li><a href="/annual-return" target="_blank" rel="noopener noreferrer" className="hover:underline">Annual Return</a></li>
@@ -88,8 +87,6 @@ const Footer = () => {
             <li><a href="/merger-hearing" target="_blank" rel="noopener noreferrer" className="hover:underline">Merger Hearing Advertisement</a></li>
           </ul>
         </div>
-
-        {/* Explore */}
         <div>
           <h3 className="text-xl font-bold mb-4">Explore</h3>
           <ul>
@@ -99,8 +96,6 @@ const Footer = () => {
             <li><a href="/international" target="_blank" rel="noopener noreferrer" className="hover:underline">International</a></li>
           </ul>
         </div>
-
-        {/* Partner Sites */}
         <div>
           <h3 className="text-xl font-bold mb-4">Partner Sites</h3>
           <ul>

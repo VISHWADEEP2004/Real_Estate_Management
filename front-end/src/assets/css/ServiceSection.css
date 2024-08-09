@@ -40,5 +40,35 @@
     color: #007bff;
     font-weight: bold;
   }
+  .modal-container {
+    width: 80%;
+    max-width: 1200px;
+    height: 600px; /* Fixed height for the modal */
+    background-color: #fff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+  
+  .modal-content {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+  }
+  
+  .modal-content--half {
+    width: 50%;
+  }
+  
+  .modal-content--full {
+    width: 100%;
+  }
+  
+  .modal-form {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+  }
   
   

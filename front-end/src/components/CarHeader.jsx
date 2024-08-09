@@ -5,8 +5,8 @@ import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 const CarHeader = () => {
   return (
-    <header className="py-4">
-      <div className="container mx-auto flex justify-between items-center">
+    <header className="py-4 font-sans-font-roboto sticky top-0 left-0 w-full h-[9vh] flex flex-row justify-center items-center z-10 border-b-2 shadow-md bg-white dark:bg-gray-800 text-foreground dark:text-secondary-foreground">
+      <div className="container mx-auto flex justify-between items-center ">
         <h1 className="text-3xl font-bold">Dream Dwelling</h1>
         <nav>
           <ul className="flex space-x-6">

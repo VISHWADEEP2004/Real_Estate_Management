@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate, NavLink } from 'react-router-dom';
-import logo2 from '../../assets/img/logo2.png';
+import logo_bb1 from '../../assets/img/logo_bb1.png';
 import { ModeToggle } from '../ModeToggle';
 import { FaHome } from 'react-icons/fa';
 
@@ -10,10 +10,6 @@ const Navbar = () => {
     
     const NavLinks = [
         { title: 'Home', path: '/' },
-        { title: 'About Us', path: '#about-us' },
-        { title: 'Services', path: '#services' },
-        { title: 'Destinations', path: '#destinations' },
-        { title: 'Search', path: '/location' },
         { title: 'Login', path: '/login' },
         { title: 'Register', path: '/register' },
     ];
@@ -41,11 +37,12 @@ const Navbar = () => {
     };
 
     return (
-        <div className="font-sans-font-roboto sticky top-0 left-0 w-full h-[8vh] flex flex-row justify-center items-center z-10 border-b-2 shadow-md bg-white dark:bg-gray-800 text-foreground dark:text-secondary-foreground">
+        <div className="font-sans-font-roboto sticky top-0 left-0 w-full h-[9vh] flex flex-row justify-center items-center z-10 border-b-2 shadow-md bg-white dark:bg-gray-800 text-foreground dark:text-secondary-foreground">
             <div className="w-1/4 h-full flex justify-start items-center text-purple-900 dark:text-primary-foreground">
                 <div className="flex items-center text-2xl">
-                    <FaHome className="mr-2" /> {/* FontAwesome icon */}
+                    <FaHome className="mr-2" />
                     <span className="font-bold text-xl">DreamDwelling</span>
+                    {/* <img src={logo_bb1} className='w-60'/> */}
                 </div>
             </div>
             <div className='w-2/4 h-full font-bold flex flex-row justify-end items-center gap-8'>

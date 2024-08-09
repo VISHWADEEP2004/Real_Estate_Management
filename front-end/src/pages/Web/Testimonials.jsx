@@ -9,28 +9,28 @@ const testimonials = [
     name: "John Doe",
     role: "Homebuyer",
     text: "The team at Houserz was exceptional in helping me find my dream home. Their dedication and expertise made the process smooth and enjoyable.",
-    image: "https://via.placeholder.com/100",
+    image: "https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA4L2pvYjEwMzQtZWxlbWVudC0wNy00MDMucG5n.png",
     rating: 5,
   },
   {
     name: "Jane Smith",
     role: "Seller",
     text: "Selling my property with Houserz was a great experience. Their marketing strategies and attention to detail helped me get top dollar for my home.",
-    image: "https://via.placeholder.com/100",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR64UiUQKXkLNtawAPA9VOgtm-RUfDzxLbaMDb-mXNPB_Cwh1gyaVweW3e61z2xlbEMKuY&usqp=CAU",
     rating: 4,
   },
   {
     name: "Michael Brown",
     role: "Investor",
     text: "Houserz provided invaluable advice and support for my real estate investments. Their market insights and recommendations were spot on.",
-    image: "https://via.placeholder.com/100",
+    image: "https://www.pngfind.com/pngs/m/317-3177131_636682202684372240-user-profile-photo-round-hd-png-download.png",
     rating: 5,
   },
   {
     name: "Emily Davis",
     role: "Tenant",
     text: "I had a seamless experience finding a rental property through Houserz. Their agents were friendly, responsive, and made the process easy.",
-    image: "https://via.placeholder.com/100",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg5YRm43jkx-7W2Cp-EiUF4XJI-edcJbkSr72uNMNv4MKCNODaxv_a7x0sHUsAVcp31N8&usqp=CAU",
     rating: 4,
   }
 ];

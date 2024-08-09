@@ -2,7 +2,7 @@ import React from 'react';
 
 const LifeAt = () => {
   return (
-    <section id="life-at" className="py-20 bg-gray-100">
+    <section id="life-at" className="py-20 ">
       <div className="container mx-auto text-center">
         <h2 className="text-3xl font-bold mb-6">Life at Dream Dwelling</h2>
         <p className="mb-6">Your work at Dream Dwelling</p>
