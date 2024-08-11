@@ -18,7 +18,12 @@ export const AdminUsers = () => {
 
   const loadUsers = async () => {
     try {
-      const result = await axios.get("http://localhost:8080/api/auth/users");
+      const token = localStorage.getItem("token"); 
+      const result = await axios.get("http://localhost:8080/api/auth/users", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       console.log("API Response:", result.data);
       const allUsers = result.data;
       const userFiltered = allUsers.filter(user => user.role === 'USER');
@@ -28,6 +33,7 @@ export const AdminUsers = () => {
       console.error("Error loading users:", error);
     }
   };
+  
 
   const deleteUser = async () => {
     try {
@@ -40,7 +46,7 @@ export const AdminUsers = () => {
       }
       console.log('User deleted successfully');
       setModalVisible(false); // Hide modal after successful deletion
-      loadUsers(); // Refresh the user list
+      loadUsers();
     } catch (error) {
       console.error('Error deleting user:', error);
     }

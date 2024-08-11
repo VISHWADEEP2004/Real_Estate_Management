@@ -5,39 +5,43 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
-    // Initialize the state from localStorage
     return !!localStorage.getItem('isLoggedIn');
   });
   const [userRole, setUserRole] = useState(localStorage.getItem('userRole') || null);
+  const [userId, setUserId] = useState(localStorage.getItem('userId') || null);
   const navigate = useNavigate();
 
-  const login = (token, role) => {
+  const login = (token, role, id) => {
     localStorage.setItem('token', token);
     localStorage.setItem('userRole', role);
-    localStorage.setItem('isLoggedIn', true); // Store isLoggedIn in localStorage
+    localStorage.setItem('userId', id);
+    localStorage.setItem('isLoggedIn', true);
     setIsLoggedIn(true);
     setUserRole(role);
+    setUserId(id);
 
     if (role === 'AGENT') {
       navigate('/agentdashboard');
     } else if (role === 'ADMIN') {
       navigate('/admindashboard');
     } else {
-      navigate('/userdashboard');
+      navigate('/');
     }
   };
 
   const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userRole');
-    localStorage.removeItem('isLoggedIn'); // Remove isLoggedIn from localStorage
+    localStorage.removeItem('userId');
+    localStorage.removeItem('isLoggedIn');
     setIsLoggedIn(false);
     setUserRole(null);
+    setUserId(null);
     navigate('/');
   };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, userRole, login, logout }}>
+    <AuthContext.Provider value={{ isLoggedIn, userRole, userId, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

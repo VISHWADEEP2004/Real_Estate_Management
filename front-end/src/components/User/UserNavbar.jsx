@@ -1,16 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate, NavLink } from 'react-router-dom';
 import { FaHome } from 'react-icons/fa';
 import { ModeToggle } from '../ModeToggle';
 import { useAuth } from '../contexts/AuthContext';
+import axios from 'axios';
 
 const UserNavbar = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const { isLoggedIn, userRole, logout } = useAuth();
     const [isDropdownOpen, setDropdownOpen] = useState(false);
+    const [username, setUsername] = useState('');
 
-    const username = localStorage.getItem('username');
+    // useEffect(() => {
+    //     // Get username from localStorage on mount
+    //     const storedUsername = localStorage.getItem('username');
+    //     setUsername(storedUsername || '');
+
+    //     if (isLoggedIn) {
+    //         axios.get('http://localhost:8080/api/auth/me', {
+    //             headers: {
+    //                 Authorization: `Bearer ${localStorage.getItem('token')}`
+    //             }
+    //         })
+    //         .then(response => {
+    //             console.log('API Response:', response.data); // Check the entire response
+    //         })
+    //         .catch(error => {
+    //             // Improved error logging
+    //             if (error.response) {
+    //                 console.error('Error fetching username:', error.response.data);
+    //             } else if (error.request) {
+    //                 console.error('Error fetching username: No response received');
+    //             } else {
+    //                 console.error('Error fetching username:', error.message);
+    //             }
+    //         });
+    //     }
+    // }, [isLoggedIn]);
 
     const NavLinks = [
         { title: 'Home', path: '/' },
@@ -42,6 +69,8 @@ const UserNavbar = () => {
 
     const handleLogout = () => {
         logout();
+        localStorage.removeItem('token'); // Optionally clear token on logout
+        localStorage.removeItem('username'); // Clear username on logout
         navigate('/');
     };
 
@@ -71,13 +100,12 @@ const UserNavbar = () => {
                                 </a>
                             </li>
                         ))}
-                        <ModeToggle />
                         <div className="relative">
                             <button
                                 onClick={toggleDropdown}
                                 className="flex items-center gap-2 focus:outline-none"
                             >
-                                <span>{username}</span>
+                                <span className='pl-12'>{username || 'Loading...'}</span>
                                 <svg
                                     className={`w-4 h-4 fill-current transition-transform ${isDropdownOpen ? 'rotate-180' : 'rotate-0'}`}
                                     viewBox="0 0 20 20"

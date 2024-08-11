@@ -10,7 +10,6 @@ import UserDashboard from './pages/User/UserDashboard';
 import AdminDashboard from './pages/Admin/AdminDashboard';
 import { AdminUsers } from './pages/Admin/AdminUsers';
 import LocationDetails from './pages/Web/LocationDetails';
-import ProfilePage from './pages/User/ProfilePage';
 import PropertyDetails from './pages/Web/PropertyDetails';
 import Locations from './pages/Web/Locations';
 import ServiceSection from './pages/Web/ServiceSection';
@@ -21,16 +20,15 @@ import AddProperty from './pages/Agent/AddProperty';
 import CareerLayout from './layout/CareerLayout';
 import CareersPage from './components/Career/CareerPage';
 import JoinUs from './components/Career/JoinUs';
-import TermsAndConditions from './pages/Web/TermsAndConditions';
-import AgentLogin from './pages/Web/AgentLogin';
 import Settings from './pages/Admin/Settings';
 import Events from './pages/Admin/Events';
 import Analytics from './pages/Admin/Analytics';
 import { AuthProvider, useAuth } from './components/contexts/AuthContext';
-import UserLeftBar from './components/User/UserLeftbar';
 import UserLayout from './layout/UserLayout';
-import Navbar from './components/Web/Navbar';
-import UserNavbar from './components/User/UserNavbar';
+import AgentRegister from './pages/Web/AgentRegister';
+import AgentLogin from './pages/Web/AgentLogin';
+import RegisterChoice from './pages/Web/RegisterChoice';
+import LoginChoice from './pages/Web/LoginChoice';
 
 const AppRoutes = () => {
   const { isLoggedIn, userRole } = useAuth();
@@ -40,16 +38,17 @@ const AppRoutes = () => {
       <Routes>
         <Route element={<WebLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/register" element={<RegisterChoice />} />
+          <Route path="/register/agent" element={<AgentRegister />} />
+          <Route path="/register/user" element={<Register />} />
+          <Route path="/login" element={<LoginChoice />} />
+          <Route path="/login/agent" element={<AgentLogin />} />
+          <Route path="/login/user" element={<Login />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
     );
   }
-
-
-
 
   if (isLoggedIn && userRole === 'USER') {
     return (
@@ -90,7 +89,7 @@ const AppRoutes = () => {
         <Route element={<AgentLayout />}>
           <Route path="/agentdashboard" element={<AgentDashboard />} />
           <Route path="/addproperties" element={<AddProperty />} />
-          {/* <Route path="*" element={<Navigate to="/agentdashboard" />} /> */}
+          <Route path="*" element={<Navigate to="/agentdashboard" />} />
         </Route>
         <Route element={<CareerLayout />}>
           <Route path="/careers" element={<CareersPage />} />

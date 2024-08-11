@@ -1,13 +1,13 @@
+// src/components/Navbar.jsx
 import React from 'react';
-import { useLocation, useNavigate, NavLink } from 'react-router-dom';
-import logo_bb1 from '../../assets/img/logo_bb1.png';
-import { ModeToggle } from '../ModeToggle';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FaHome } from 'react-icons/fa';
+import { ModeToggle } from '../ModeToggle';
 
 const Navbar = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    
+
     const NavLinks = [
         { title: 'Home', path: '/' },
         { title: 'Login', path: '/login' },
@@ -42,7 +42,6 @@ const Navbar = () => {
                 <div className="flex items-center text-2xl">
                     <FaHome className="mr-2" />
                     <span className="font-bold text-xl">DreamDwelling</span>
-                    {/* <img src={logo_bb1} className='w-60'/> */}
                 </div>
             </div>
             <div className='w-2/4 h-full font-bold flex flex-row justify-end items-center gap-8'>
@@ -61,6 +60,6 @@ const Navbar = () => {
             </div>
         </div>
     );
-}
+};
 
 export default Navbar;
