@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate, NavLink } from 'react-router-dom';
-import { FaHome } from 'react-icons/fa';
+import { FaHome,FaUser } from 'react-icons/fa';
 import { ModeToggle } from '../ModeToggle';
 import { useAuth } from '../contexts/AuthContext';
 import axios from 'axios';
@@ -86,7 +86,8 @@ const UserNavbar = () => {
                                 onClick={toggleDropdown}
                                 className="flex items-center gap-2 focus:outline-none"
                             >
-                                <span className='pl-2 pr-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full'>
+                                <span className='flex items-center gap-2 pl-4 pr-6 py-2 bg-violet-900 text-white rounded-md cursor-pointer hover:bg-violet-600 transition-colors duration-300'>
+                                    <FaUser className="text-lg" /> {/* User icon */}
                                     {username || 'Loading...'}
                                 </span>
                                 <svg

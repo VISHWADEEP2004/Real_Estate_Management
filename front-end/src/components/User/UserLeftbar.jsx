@@ -63,7 +63,7 @@ const UserLeftBar = () => {
             </div>
             <div className='h-5/6 w-full flex flex-col justify-start items-center gap-4 pt-4'>
                 {UserLinks.map((data, index) => (
-                    <li key={index} className='list-none w-[90%] text-left px-3 py-4 border border-b-gray-300 dark:text-primary-foreground rounded-lg'>
+                    <li key={index} className='list-none w-[90%] text-left px-3 py-4 border text-white bg-violet-900 dark:text-primary-foreground rounded-lg'>
                         <NavLink to={data.path} className='w-[90%] text-left flex items-center'>
                             <FontAwesomeIcon icon={data.icon} className='p-1' />
                             <span className='ml-2'>{data.title}</span>
@@ -72,7 +72,7 @@ const UserLeftBar = () => {
                 ))}
             </div>
             <div className='h-1/6 w-full flex flex-col justify-start pt-10 items-center'>
-                <li className='list-none w-[90%] text-left px-3 py-4 flex justify-start border border-b-gray-300 rounded-lg cursor-pointer' onClick={logout}>
+                <li className='list-none w-[90%] text-left px-3 py-4 flex justify-start border text-white bg-red-700 rounded-lg cursor-pointer' onClick={logout}>
                     <FontAwesomeIcon icon={faRightFromBracket} className='size-6 p-0 pr-4' />Logout
                 </li>
             </div>
