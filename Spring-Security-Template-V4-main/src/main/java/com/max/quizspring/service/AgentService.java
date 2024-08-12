@@ -116,6 +116,7 @@ package com.max.quizspring.service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.security.authentication.AuthenticationManager;
@@ -222,7 +223,9 @@ public class AgentService {
     public List<Agent> getAllAgents() {
         return agentRepository.findAll();
     }
-    
+    public long countAgents() {
+        return agentRepository.count();
+    }
 
     public boolean deleteAgentById(Long id) {
         Optional<Agent> agent = agentRepository.findById(id);
@@ -232,9 +235,17 @@ public class AgentService {
         }
         return false;
     }
-
-    public User updateUserById(Long id, UpdateRequest updateRequest) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateUserById'");
+public Agent updateAgentById(Long id, UpdateRequest updateRequest) {
+    Optional<Agent> optionalAgent = agentRepository.findById(id);
+    if (optionalAgent.isPresent()) {
+        Agent agent = optionalAgent.get();
+        agent.setName(updateRequest.getName());
+        agent.setPhone(updateRequest.getPhone());
+        agent.setEmail(updateRequest.getEmail());
+        return agentRepository.save(agent);
+    } else {
+        throw new NoSuchElementException("Agent not found with id " + id);
     }
+}
+    
 }

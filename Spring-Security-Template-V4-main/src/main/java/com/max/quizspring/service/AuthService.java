@@ -118,18 +118,21 @@ public class AuthService {
     public void deleteUser(Long userId) {
         userRepository.deleteById(userId);
     }
-      public User updateUser(UpdateRequest updateRequest) {
-        // Get the current authenticated user
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        User user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+    //   public User updateUser(UpdateRequest updateRequest) {
+    //     // Get the current authenticated user
+    //     String username = SecurityContextHolder.getContext().getAuthentication().getName();
+    //     User user = userRepository.findByUsername(username)
+    //             .orElseThrow(() -> new RuntimeException("User not found"));
 
-        // Update user details
-        user.setName(updateRequest.getName());
-        user.setEmail(updateRequest.getEmail());
-        user.setUsername(updateRequest.getUsername());
+    //     // Update user details
+    //     user.setName(updateRequest.getName());
+    //     user.setEmail(updateRequest.getEmail());
+    //     user.setUsername(updateRequest.getUsername());
 
-        return userRepository.save(user);
+    //     return userRepository.save(user);
+    // }
+    public long countUsers() {
+        return userRepository.count();
     }
 
     public Optional<User> getUserById(Long userId) {

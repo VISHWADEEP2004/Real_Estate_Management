@@ -51,9 +51,11 @@ public class SecurityConfig {
             "/v3/api-docs/**",
             "/api/reviews/**",
             "/api/properties/**",
+            "/api/properties/agennt/**",
             "/api/properties/delete/**",
             "/api/properties/edit/**",
             "/api/agents/**",
+            "/api/agents/update/**",
             "/api/agents/delete/**",
             "/api/favorites/**",
     };

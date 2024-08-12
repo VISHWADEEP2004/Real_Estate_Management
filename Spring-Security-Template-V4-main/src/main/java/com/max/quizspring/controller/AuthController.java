@@ -65,15 +65,11 @@ public class AuthController {
     }
 
 
-// @GetMapping("/me")
-// public void getCurrentUser(HttpServletRequest request) {
-//     String token = request.getHeader("Authorization");
-//     if (token != null) {
-//         System.out.println("Token received: " + token);
-//     } else {
-//         System.out.println("No token received");
-//     }
-// }
+    @GetMapping("/count")
+    public ResponseEntity<Long> countUsers() {
+        long userCount = authService.countUsers();
+        return new ResponseEntity<>(userCount, HttpStatus.OK);
+    }
 
 
     @DeleteMapping("/delete/{userId}")
