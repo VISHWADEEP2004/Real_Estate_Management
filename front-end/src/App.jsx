@@ -29,6 +29,12 @@ import AgentRegister from './pages/Web/AgentRegister';
 import AgentLogin from './pages/Web/AgentLogin';
 import RegisterChoice from './pages/Web/RegisterChoice';
 import LoginChoice from './pages/Web/LoginChoice';
+import Options from './pages/Web/Options';
+import Properties from './pages/Agent/Properties';
+import EditPropertyPage from './pages/Agent/EditPropertyModal';
+import AdminProperties from './pages/Admin/AdminProperties';
+import FavoritesPage from './pages/User/FavoritesPage';
+import SettingsPage from './pages/User/SettingsPage';
 
 const AppRoutes = () => {
   const { isLoggedIn, userRole } = useAuth();
@@ -38,6 +44,7 @@ const AppRoutes = () => {
       <Routes>
         <Route element={<WebLayout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/options" element={<Options/>}/>
           <Route path="/register" element={<RegisterChoice />} />
           <Route path="/register/agent" element={<AgentRegister />} />
           <Route path="/register/user" element={<Register />} />
@@ -57,10 +64,13 @@ const AppRoutes = () => {
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<ServiceSection />} />
           <Route path="/location" element={<Locations />} />
-          <Route path="/userdashboard" element={<UserDashboard />} />
           <Route path="/location/:locationName" element={<LocationDetails />} />
           <Route path="/property/:propertyName" element={<PropertyDetails />} />
-          {/* Redirect to home if user tries to access the root URL */}
+          <Route path="/userdashboard" element={<UserDashboard />}>
+            <Route path="favourite" element={<FavoritesPage />} />
+            <Route path="settings" element={<SettingsPage />} />
+          </Route>
+
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
@@ -77,6 +87,7 @@ const AppRoutes = () => {
           <Route path="/adminsettings" element={<Settings />} />
           <Route path="/adminevents" element={<Events />} />
           <Route path="/adminanalytics" element={<Analytics />} />
+          <Route path="/adminproperties" element={<AdminProperties />} />
           {/* <Route path="*" element={<Navigate to="/admindashboard" />} /> */}
         </Route>
       </Routes>
@@ -89,18 +100,18 @@ const AppRoutes = () => {
         <Route element={<AgentLayout />}>
           <Route path="/agentdashboard" element={<AgentDashboard />} />
           <Route path="/addproperties" element={<AddProperty />} />
+          <Route path="/properties" element={<Properties />} />
+          <Route path="/properties/:propertyId" element={<EditPropertyPage />} />
           <Route path="*" element={<Navigate to="/agentdashboard" />} />
         </Route>
         <Route element={<CareerLayout />}>
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/joinus" element={<JoinUs />} />
-          {/* <Route path="*" element={<Navigate to="/careers" />} /> */}
         </Route>
       </Routes>
     );
   }
 
-  // Default to Page Not Found if no role matches
   return (
     <Routes>
       <Route path="*" element={<PageNotFound />} />

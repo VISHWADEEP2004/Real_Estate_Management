@@ -9,7 +9,7 @@ import UserMain from '@/components/User/UserMain';
 const UserLayout = () => {
   const location = useLocation();
 
-  const isUserDashboard = location.pathname === '/userdashboard';
+  const isUserDashboard = location.pathname.startsWith('/userdashboard');
 
   return (
     <div className='h-screen w-screen overflow-hidden overflow-y-auto m-0 p-0'>
@@ -20,9 +20,9 @@ const UserLayout = () => {
             <div className='sticky top-0 z-50 pt-0 pr-2 pl-2'>
               <UserTopbar />
             </div>
-            <div className='flex-1 overflow-auto h-full w-full flex justify-center items-center pr-2 pl-2'>
-              <UserMain />
-            </div>
+            <UserMain>
+              <Outlet />
+            </UserMain>
           </div>
         </div>
       ) : (

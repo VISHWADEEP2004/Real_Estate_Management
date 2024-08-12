@@ -12,32 +12,12 @@ const UserNavbar = () => {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
     const [username, setUsername] = useState('');
 
-    // useEffect(() => {
-    //     // Get username from localStorage on mount
-    //     const storedUsername = localStorage.getItem('username');
-    //     setUsername(storedUsername || '');
-
-    //     if (isLoggedIn) {
-    //         axios.get('http://localhost:8080/api/auth/me', {
-    //             headers: {
-    //                 Authorization: `Bearer ${localStorage.getItem('token')}`
-    //             }
-    //         })
-    //         .then(response => {
-    //             console.log('API Response:', response.data); // Check the entire response
-    //         })
-    //         .catch(error => {
-    //             // Improved error logging
-    //             if (error.response) {
-    //                 console.error('Error fetching username:', error.response.data);
-    //             } else if (error.request) {
-    //                 console.error('Error fetching username: No response received');
-    //             } else {
-    //                 console.error('Error fetching username:', error.message);
-    //             }
-    //         });
-    //     }
-    // }, [isLoggedIn]);
+    useEffect(() => {
+        const storedUsername = localStorage.getItem('username');
+        if (storedUsername) {
+            setUsername(storedUsername);
+        }
+    }, [isLoggedIn]);
 
     const NavLinks = [
         { title: 'Home', path: '/' },
@@ -71,6 +51,7 @@ const UserNavbar = () => {
         logout();
         localStorage.removeItem('token'); // Optionally clear token on logout
         localStorage.removeItem('username'); // Clear username on logout
+        setUsername(''); // Clear username state on logout
         navigate('/');
     };
 
@@ -79,7 +60,7 @@ const UserNavbar = () => {
     };
 
     return (
-        <div className="font-sans-font-roboto sticky top-0 left-0 w-full h-[9vh] flex flex-row justify-center items-center z-10 border-b-2 shadow-md bg-white dark:bg-gray-800 text-foreground dark:text-secondary-foreground">
+        <div className="font-sans sticky top-0 left-0 w-full h-[9vh] flex flex-row justify-center items-center z-10 border-b-2 shadow-md bg-white dark:bg-gray-800 text-foreground dark:text-secondary-foreground">
             <div className="w-1/4 h-full flex justify-start items-center text-purple-900 dark:text-primary-foreground">
                 <div className="flex items-center text-2xl">
                     <FaHome className="mr-2" />
@@ -105,7 +86,9 @@ const UserNavbar = () => {
                                 onClick={toggleDropdown}
                                 className="flex items-center gap-2 focus:outline-none"
                             >
-                                <span className='pl-12'>{username || 'Loading...'}</span>
+                                <span className='pl-2 pr-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full'>
+                                    {username || 'Loading...'}
+                                </span>
                                 <svg
                                     className={`w-4 h-4 fill-current transition-transform ${isDropdownOpen ? 'rotate-180' : 'rotate-0'}`}
                                     viewBox="0 0 20 20"

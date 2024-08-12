@@ -23,14 +23,14 @@ const UserLeftBar = () => {
             path: '/userdashboard',
             icon: faTableColumns
         },
+        // {
+        //     title: 'My Properties',
+        //     path: '/myproperties',
+        //     icon: faHouseChimney
+        // },
         {
-            title: 'My Properties',
-            path: '/myproperties',
-            icon: faHouseChimney
-        },
-        {
-            title: 'Saved Listings',
-            path: '/savedlistings',
+            title: 'Favourite Listings',
+            path: '/userdashboard/favourite',
             icon: faHeart
         },
         {
@@ -50,7 +50,7 @@ const UserLeftBar = () => {
         },
         {
             title: 'Settings',
-            path: '/usersettings',
+            path: '/userdashboard/settings',
             icon: faCog
         }
     ];

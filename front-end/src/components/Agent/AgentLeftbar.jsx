@@ -15,7 +15,7 @@ const AgentLeftBar = () => {
         },
         {
             title: 'Properties',
-            path: '/agent/properties',
+            path: '/properties',
             icon: faList
         },
         {

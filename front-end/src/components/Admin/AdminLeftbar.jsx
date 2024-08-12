@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faTableColumns, faUsers, faRightFromBracket, faChartLine, faCalendarAlt, faCogs } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faTableColumns, faUsers, faRightFromBracket, faChartLine, faCalendarAlt, faCogs, faBuilding } from '@fortawesome/free-solid-svg-icons'; // Add faBuilding icon
 import logo2 from '../../assets/img/logo2.png';
-import { useAuth } from '../contexts/AuthContext'; // Import the useAuth hook
+import { useAuth } from '../contexts/AuthContext';
 
 const AdminLeftBar = () => {
-    const { logout } = useAuth(); // Destructure the logout function from useAuth
+    const { logout } = useAuth();
 
     const AdminLinks = [
         {
@@ -23,6 +23,11 @@ const AdminLeftBar = () => {
             title: 'Agents',
             path: '/adminagents',
             icon: faUsers
+        },
+        {
+            title: 'Properties',
+            path: '/adminproperties',
+            icon: faBuilding
         },
         {
             title: 'Analytics',

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const AddProperty = () => {
     const [formData, setFormData] = useState({
@@ -11,6 +13,8 @@ const AddProperty = () => {
         agentId: '', // Ensure this is fetched from localStorage
         image: '' // Base64 string for image
     });
+
+    const navigate = useNavigate(); // Hook for navigation
 
     // Handle form input changes
     const handleChange = (e) => {
@@ -50,57 +54,72 @@ const AddProperty = () => {
             const updatedFormData = { ...formData, agentId };
 
             const response = await axios.post('http://localhost:8080/api/properties', updatedFormData);
-            console.log("Server Response: ", response); // Log server response
+            
+            // Show success message
+            toast.success('Property added successfully!');
+
+            // Redirect to agent dashboard page
+            navigate('/agent-dashboard');
         } catch (error) {
-            console.error("Error adding property:", error.message); // Log error message
-            console.error("Error Details:", error.response?.data || error); // Log detailed error response
+            // Show error message
+            toast.error('Error adding property: ' + (error.response?.data || error.message));
         }
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                name="bhk"
-                value={formData.bhk}
-                onChange={handleChange}
-                placeholder="BHK"
-            />
-            <input
-                type="text"
-                name="contactName"
-                value={formData.contactName}
-                onChange={handleChange}
-                placeholder="Contact Name"
-            />
-            <input
-                type="text"
-                name="location"
-                value={formData.location}
-                onChange={handleChange}
-                placeholder="Location"
-            />
-            <input
-                type="number"
-                name="price"
-                value={formData.price}
-                onChange={handleChange}
-                placeholder="Price"
-            />
-            <input
-                type="text"
-                name="type"
-                value={formData.type}
-                onChange={handleChange}
-                placeholder="Type"
-            />
-            <input
-                type="file"
-                name="image"
-                onChange={handleFileChange}
-            />
-            <button type="submit">Add Property</button>
-        </form>
+        <div>
+            <form onSubmit={handleSubmit} className="max-w-lg mx-auto bg-white p-8 shadow-md rounded-lg space-y-4 border">
+                <input
+                    type="text"
+                    name="bhk"
+                    value={formData.bhk}
+                    onChange={handleChange}
+                    placeholder="BHK"
+                    className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <input
+                    type="text"
+                    name="contactName"
+                    value={formData.contactName}
+                    onChange={handleChange}
+                    placeholder="Contact Name"
+                    className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <input
+                    type="text"
+                    name="location"
+                    value={formData.location}
+                    onChange={handleChange}
+                    placeholder="Location"
+                    className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <input
+                    type="number"
+                    name="price"
+                    value={formData.price}
+                    onChange={handleChange}
+                    placeholder="Price"
+                    className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <input
+                    type="text"
+                    name="type"
+                    value={formData.type}
+                    onChange={handleChange}
+                    placeholder="Type"
+                    className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <input
+                    type="file"
+                    name="image"
+                    onChange={handleFileChange}
+                    className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600">
+                    Add Property
+                </button>
+            </form>
+        </div>
     );
 };
 
