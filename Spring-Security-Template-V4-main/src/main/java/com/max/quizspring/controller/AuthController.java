@@ -24,6 +24,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.max.quizspring.auth.LoginRequest;
 import com.max.quizspring.auth.RegisterRequest;
 import com.max.quizspring.auth.UpdateRequest;
+import com.max.quizspring.model.User;
+import com.max.quizspring.repo.UserRepo;
 import com.max.quizspring.service.AuthService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -39,6 +41,11 @@ import lombok.RequiredArgsConstructor;
 public class AuthController {
 
     private final AuthService authService;
+     private UserRepo userRepo;
+
+    public void AuthService(UserRepo userRepo) {
+        this.userRepo = userRepo;
+    }
 
     @GetMapping("/users")
     @Operation(summary = "Get all users", description = "Fetches a list of all users.")
@@ -58,15 +65,15 @@ public class AuthController {
     }
 
 
-@GetMapping("/me")
-public void getCurrentUser(HttpServletRequest request) {
-    String token = request.getHeader("Authorization");
-    if (token != null) {
-        System.out.println("Token received: " + token);
-    } else {
-        System.out.println("No token received");
-    }
-}
+// @GetMapping("/me")
+// public void getCurrentUser(HttpServletRequest request) {
+//     String token = request.getHeader("Authorization");
+//     if (token != null) {
+//         System.out.println("Token received: " + token);
+//     } else {
+//         System.out.println("No token received");
+//     }
+// }
 
 
     @DeleteMapping("/delete/{userId}")
@@ -83,5 +90,6 @@ public void getCurrentUser(HttpServletRequest request) {
             return new ResponseEntity<>("Error deleting user", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+  
     
 }

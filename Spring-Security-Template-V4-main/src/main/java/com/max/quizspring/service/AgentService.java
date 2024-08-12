@@ -127,9 +127,11 @@ import org.springframework.stereotype.Service;
 
 import com.max.quizspring.auth.AgentLoginRequest;
 import com.max.quizspring.auth.RegisterAgentRequest;
+import com.max.quizspring.auth.UpdateRequest;
 import com.max.quizspring.config.JwtToken;
 import com.max.quizspring.model.Agent;
 import com.max.quizspring.model.Token;
+import com.max.quizspring.model.User;
 import com.max.quizspring.repo.AgentRepo;
 import com.max.quizspring.repo.JwtRepo;
 
@@ -229,5 +231,10 @@ public class AgentService {
             return true;
         }
         return false;
+    }
+
+    public User updateUserById(Long id, UpdateRequest updateRequest) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'updateUserById'");
     }
 }

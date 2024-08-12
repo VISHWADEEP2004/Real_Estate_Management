@@ -51,8 +51,11 @@ public class SecurityConfig {
             "/v3/api-docs/**",
             "/api/reviews/**",
             "/api/properties/**",
+            "/api/properties/delete/**",
+            "/api/properties/edit/**",
             "/api/agents/**",
             "/api/agents/delete/**",
+            "/api/favorites/**",
     };
 
     @Bean

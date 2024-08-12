@@ -1,26 +1,20 @@
 package com.max.quizspring.model;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 public class Favorite {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private User user; // User who favorited the property
 
     @ManyToOne
-    @JoinColumn(name = "property_id", nullable = false)
-    private Property property;
+    private Property property; // Property that is favorited
 
-    private LocalDateTime addedAt;
-
-
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -43,13 +37,5 @@ public class Favorite {
 
     public void setProperty(Property property) {
         this.property = property;
-    }
-
-    public LocalDateTime getAddedAt() {
-        return addedAt;
-    }
-
-    public void setAddedAt(LocalDateTime addedAt) {
-        this.addedAt = addedAt;
     }
 }

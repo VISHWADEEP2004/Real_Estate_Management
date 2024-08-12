@@ -2,9 +2,14 @@ package com.max.quizspring.controller;
 
 import com.max.quizspring.auth.AgentLoginRequest;
 import com.max.quizspring.auth.RegisterAgentRequest;
+import com.max.quizspring.auth.UpdateRequest;
 import com.max.quizspring.config.JwtToken;
 import com.max.quizspring.model.Agent;
+import com.max.quizspring.model.Property;
+import com.max.quizspring.model.User;
 import com.max.quizspring.service.AgentService;
+import com.max.quizspring.service.PropertyService;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,10 +23,12 @@ import java.util.Optional;
 public class AgentController {
 
     private final AgentService agentService;
+    private final PropertyService propertyService;
     private final JwtToken jwtUtil;
 
-    public AgentController(AgentService agentService, JwtToken jwtUtil) {
+    public AgentController(AgentService agentService, PropertyService propertyService, JwtToken jwtUtil) {
         this.agentService = agentService;
+        this.propertyService = propertyService;
         this.jwtUtil = jwtUtil;
     }
 
@@ -76,4 +83,16 @@ public class AgentController {
             return new ResponseEntity<>("An error occurred while deleting the agent", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateUserById(
+            @PathVariable Long id,
+            @RequestBody UpdateRequest updateRequest) {
+        try {
+            User updatedUser = agentService.updateUserById(id, updateRequest);
+            return ResponseEntity.ok(updatedUser);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating user");
+        }
+    }
+
 }

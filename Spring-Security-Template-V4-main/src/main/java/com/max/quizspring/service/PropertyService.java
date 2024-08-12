@@ -26,8 +26,11 @@ public class PropertyService {
         return propertyRepository.findByLocation(location);
     }
 
+    public List<Property> getPropertiesByAgentId(Long agentId) {
+        return propertyRepository.findByAgentId(agentId);
+    }
+
     public Property updateProperty(Long id, Property property) {
-        System.out.println("Updating property with ID: " + id);
         Optional<Property> existingProperty = propertyRepository.findById(id);
         if (existingProperty.isPresent()) {
             Property updatedProperty = existingProperty.get();
@@ -37,18 +40,15 @@ public class PropertyService {
             updatedProperty.setPrice(property.getPrice());
             updatedProperty.setType(property.getType());
             updatedProperty.setImg(property.getImg()); // Update Base64 image
-            System.out.println("Updated property: " + updatedProperty);
             return propertyRepository.save(updatedProperty);
         } else {
-            System.out.println("Property with ID " + id + " not found.");
-            return null;
+            return null; // Property not found
         }
     }
 
     public boolean deleteProperty(Long id) {
         if (propertyRepository.existsById(id)) {
             propertyRepository.deleteById(id);
-
             return true;
         } else {
             return false;
@@ -58,4 +58,13 @@ public class PropertyService {
     public List<Property> getAllProperties() {
         return propertyRepository.findAll();
     }
+
+    public List<Property> getPropertiesByAgent(Long agentId) {
+        return propertyRepository.findByAgentId(agentId);
+    }
+
+    public Optional<Property> getPropertyById(Long id) {
+        return propertyRepository.findById(id);
+    }
+
 }

@@ -9,6 +9,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -116,5 +117,23 @@ public class AuthService {
     }
     public void deleteUser(Long userId) {
         userRepository.deleteById(userId);
+    }
+      public User updateUser(UpdateRequest updateRequest) {
+        // Get the current authenticated user
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        // Update user details
+        user.setName(updateRequest.getName());
+        user.setEmail(updateRequest.getEmail());
+        user.setUsername(updateRequest.getUsername());
+
+        return userRepository.save(user);
+    }
+
+    public Optional<User> getUserById(Long userId) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getUserById'");
     }
 }

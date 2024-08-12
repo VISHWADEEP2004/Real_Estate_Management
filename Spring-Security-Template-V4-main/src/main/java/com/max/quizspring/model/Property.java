@@ -131,4 +131,9 @@ public class Property {
     @Lob
     @Column(name = "img")
     private String img;
+
+    public String getAgentName() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getAgentName'");
+    }
 }

@@ -9,8 +9,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class UpdateRequest {
     private String name;
+    private String username; 
     private String email;
-    private String password;
-    private String phone;
-    private String address;
 }

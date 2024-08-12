@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface PropertyRepos extends JpaRepository<Property, Long> {
     List<Property> findByLocation(String location);
+    List<Property> findByAgentId(Long agentId);
 }

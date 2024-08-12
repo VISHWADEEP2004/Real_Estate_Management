@@ -1,43 +1,44 @@
 package com.max.quizspring.service;
 
-
-import com.max.quizspring.auth.FavoriteRequest;
 import com.max.quizspring.model.Favorite;
 import com.max.quizspring.model.Property;
 import com.max.quizspring.model.User;
-import com.max.quizspring.repo.FavoriteRepo;
-import com.max.quizspring.repo.PropertyRepos;
-import com.max.quizspring.repo.UserRepo;
+import com.max.quizspring.repo.FavoriteRepository;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-import java.util.Optional;
+import java.util.List;
 
 @Service
 public class FavoriteService {
+    private final FavoriteRepository favoriteRepository;
 
-    private final FavoriteRepo favoriteRepo;
-    private final UserRepo userRepo;
-    private final PropertyRepos propertyRepo;
-
-    public FavoriteService(FavoriteRepo favoriteRepo, UserRepo userRepo, PropertyRepos propertyRepo) {
-        this.favoriteRepo = favoriteRepo;
-        this.userRepo = userRepo;
-        this.propertyRepo = propertyRepo;
+    public FavoriteService(FavoriteRepository favoriteRepository) {
+        this.favoriteRepository = favoriteRepository;
     }
 
-    public Favorite addFavorite(FavoriteRequest request) {
-        Optional<User> userOptional = userRepo.findById(request.getUserId());
-        Optional<Property> propertyOptional = propertyRepo.findById(request.getPropertyId());
+    public List<Favorite> getFavoritesByUser(User user) {
+        return favoriteRepository.findByUser(user);
+    }
 
-        if (userOptional.isPresent() && propertyOptional.isPresent()) {
-            Favorite favorite = new Favorite();
-            favorite.setUser(userOptional.get());
-            favorite.setProperty(propertyOptional.get());
-            favorite.setAddedAt(LocalDateTime.now()); // Set the current time
-            return favoriteRepo.save(favorite);
-        } else {
-            throw new RuntimeException("User or Property not found");
+    public Favorite addFavorite(User user, Property property) {
+        if (favoriteRepository.existsByUserAndProperty(user, property)) {
+            return null; 
         }
+        Favorite favorite = new Favorite();
+        favorite.setUser(user);
+        favorite.setProperty(property);
+        return favoriteRepository.save(favorite);
+    }
+
+    public boolean removeFavorite(User user, Property property) {
+        Favorite favorite = favoriteRepository.findByUser(user).stream()
+                .filter(f -> f.getProperty().equals(property))
+                .findFirst()
+                .orElse(null);
+        if (favorite != null) {
+            favoriteRepository.delete(favorite);
+            return true;
+        }
+        return false;
     }
 }
